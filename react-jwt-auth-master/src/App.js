@@ -5,6 +5,9 @@ import './App.css'
 
 import AuthService from './services/auth.service'
 
+import AddTutorial from './components/add-tutorial.component'
+import Tutorial from './components/tutorial.component'
+import TutorialsList from './components/tutorials-list.component'
 import Login from './components/login.component'
 import Register from './components/register.component'
 import Home from './components/home.component'
@@ -63,6 +66,17 @@ class App extends Component {
                 </Link>
               </li>
             )}
+
+            <li className='nav-item'>
+              <Link to={'/tutorials'} className='nav-link'>
+                Tutorials
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link to={'/add'} className='nav-link'>
+                Add
+              </Link>
+            </li>
           </div>
 
           {currentUser ? (
@@ -103,6 +117,9 @@ class App extends Component {
             <Route exact path='/profile' component={Profile} />
             <Route path='/user' component={BoardUser} />
             <Route path='/admin' component={BoardAdmin} />
+            <Route exact path={'/tutorials'} component={TutorialsList} />
+            <Route exact path='/add' component={AddTutorial} />
+            <Route path='/tutorials/:id' component={Tutorial} />
           </Switch>
         </div>
       </div>
