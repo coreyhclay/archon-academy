@@ -48,7 +48,7 @@ class App extends Component {
       <div>
         <nav className='navbar navbar-expand navbar-dark bg-dark'>
           <Link to={'/'} className='navbar-brand'>
-            bezKoder
+            coreyhclay
           </Link>
           <div className='navbar-nav mr-auto'>
             {showAdminBoard && (
