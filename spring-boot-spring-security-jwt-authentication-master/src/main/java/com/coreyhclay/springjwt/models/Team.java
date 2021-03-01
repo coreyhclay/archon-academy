@@ -3,8 +3,8 @@ package com.coreyhclay.springjwt.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tutorials")
-public class Tutorial {
+@Table(name = "teams")
+public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -18,10 +18,10 @@ public class Tutorial {
     @Column(name = "published")
     private boolean published;
 
-    public Tutorial() {
+    public Team() {
     }
 
-    public Tutorial(String title, String description, boolean published) {
+    public Team(String title, String description, boolean published) {
         this.title = title;
         this.description = description;
         this.published = published;
@@ -57,6 +57,6 @@ public class Tutorial {
 
     @Override
     public String toString() {
-        return "Tutorial [id=" + id + ", title=" + title + ", desc=" + description + ", published=" + published + "]";
+        return "Team [id=" + id + ", title=" + title + ", desc=" + description + ", published=" + published + "]";
     }
 }

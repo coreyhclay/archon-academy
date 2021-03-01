@@ -5,9 +5,9 @@ import './App.css'
 
 import AuthService from './services/auth.service'
 
-import AddTutorial from './components/add-tutorial.component'
-import Tutorial from './components/tutorial.component'
-import TutorialsList from './components/tutorials-list.component'
+import AddTeam from './components/add-team.component'
+import Team from './components/team.component'
+import TeamsList from './components/teams-list.component'
 import Login from './components/login.component'
 import Register from './components/register.component'
 import Home from './components/home.component'
@@ -68,8 +68,8 @@ class App extends Component {
             )}
 
             <li className='nav-item'>
-              <Link to={'/tutorials'} className='nav-link'>
-                Tutorials
+              <Link to={'/teams'} className='nav-link'>
+                Teams
               </Link>
             </li>
             <li className='nav-item'>
@@ -117,9 +117,9 @@ class App extends Component {
             <Route exact path='/profile' component={Profile} />
             <Route path='/user' component={BoardUser} />
             <Route path='/admin' component={BoardAdmin} />
-            <Route exact path={'/tutorials'} component={TutorialsList} />
-            <Route exact path='/add' component={AddTutorial} />
-            <Route path='/tutorials/:id' component={Tutorial} />
+            <Route exact path={'/teams'} component={TeamsList} />
+            <Route exact path='/add' component={AddTeam} />
+            <Route path='/teams/:id' component={Team} />
           </Switch>
         </div>
       </div>
