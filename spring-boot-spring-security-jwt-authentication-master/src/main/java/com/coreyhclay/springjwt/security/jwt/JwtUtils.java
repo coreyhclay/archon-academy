@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 import com.coreyhclay.springjwt.security.services.UserDetailsImpl;
 import io.jsonwebtoken.*;
 
+// generate a JWT from username, date, expiration, secret
+// get username from JWT
+// validate a JWT
+
 @Component
 public class JwtUtils {
 	private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);

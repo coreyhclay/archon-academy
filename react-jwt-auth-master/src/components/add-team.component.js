@@ -14,7 +14,6 @@ export default class AddTeam extends Component {
       title: '',
       description: '',
       published: false,
-
       submitted: false,
     }
   }
@@ -60,7 +59,6 @@ export default class AddTeam extends Component {
       title: '',
       description: '',
       published: false,
-
       submitted: false,
     })
   }

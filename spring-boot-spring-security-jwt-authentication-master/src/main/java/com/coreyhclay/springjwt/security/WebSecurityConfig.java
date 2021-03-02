@@ -19,7 +19,10 @@ import com.coreyhclay.springjwt.security.jwt.AuthTokenFilter;
 import com.coreyhclay.springjwt.security.services.UserDetailsServiceImpl;
 
 @Configuration
+// allows Spring to find and automatically apply the class to the global Web
+// Security.
 @EnableWebSecurity
+// provides AOP security on methods
 @EnableGlobalMethodSecurity(
 		// securedEnabled = true,
 		// jsr250Enabled = true,

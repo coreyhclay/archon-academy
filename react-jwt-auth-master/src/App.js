@@ -67,16 +67,20 @@ class App extends Component {
               </li>
             )}
 
-            <li className='nav-item'>
-              <Link to={'/teams'} className='nav-link'>
-                Teams
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link to={'/add'} className='nav-link'>
-                Add
-              </Link>
-            </li>
+            {currentUser && (
+              <li className='nav-item'>
+                <Link to={'/teams'} className='nav-link'>
+                  Teams
+                </Link>
+              </li>
+            )}
+            {currentUser && (
+              <li className='nav-item'>
+                <Link to={'/add'} className='nav-link'>
+                  Add
+                </Link>
+              </li>
+            )}
           </div>
 
           {currentUser ? (
@@ -111,13 +115,13 @@ class App extends Component {
 
         <div className='container mt-3'>
           <Switch>
-            <Route exact path={['/']} component={Home} />
+            <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
             <Route exact path='/profile' component={Profile} />
             <Route path='/user' component={BoardUser} />
             <Route path='/admin' component={BoardAdmin} />
-            <Route exact path={'/teams'} component={TeamsList} />
+            <Route exact path='/teams' component={TeamsList} />
             <Route exact path='/add' component={AddTeam} />
             <Route path='/teams/:id' component={Team} />
           </Switch>
