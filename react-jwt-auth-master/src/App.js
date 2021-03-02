@@ -14,6 +14,7 @@ import Home from './components/home.component'
 import Profile from './components/profile.component'
 import BoardAdmin from './components/board-admin.component'
 import logo from './resources/images/aa.png'
+import './resources/style.css'
 
 class App extends Component {
   constructor(props) {
@@ -46,67 +47,29 @@ class App extends Component {
 
     return (
       <div>
-        <nav className='navbar navbar-expand navbar-dark bg-dark'>
-          <Link to={'/'} className='navbar-brand'>
-            <div>
-              <img src={logo} alt='aa' style={{ width: '50px' }} />
-            </div>
+        <div className='nav'>
+          <Link to={'/'}>
+            <img src={logo} alt='aa' style={{ width: '50px', marginLeft: '50px' }} />
           </Link>
-          <div className='navbar-nav mr-auto'>
-            {showAdminBoard && (
-              <li className='nav-item'>
-                <Link to={'/admin'} className='nav-link'>
-                  Admin Board
-                </Link>
-              </li>
-            )}
-
-            {currentUser && (
-              <li className='nav-item'>
-                <Link to={'/teams'} className='nav-link'>
-                  Teams
-                </Link>
-              </li>
-            )}
-
-            {currentUser && (
-              <li className='nav-item'>
-                <Link to={'/add'} className='nav-link'>
-                  Add
-                </Link>
-              </li>
+          <div className='navlinks'>
+            {showAdminBoard && <Link to={'/admin'}>admin board</Link>}
+            {currentUser && <Link to={'/teams'}>teams</Link>}
+            {currentUser && <Link to={'/add'}>add</Link>}
+            {currentUser ? (
+              <div>
+                <Link to={'/profile'}>{currentUser.username}</Link>
+                <a href='/login' onClick={this.logOut}>
+                  logout
+                </a>
+              </div>
+            ) : (
+              <div>
+                <Link to={'/login'}>login</Link>
+                <Link to={'/register'}>sign up</Link>
+              </div>
             )}
           </div>
-
-          {currentUser ? (
-            <div className='navbar-nav ml-auto'>
-              <li className='nav-item'>
-                <Link to={'/profile'} className='nav-link'>
-                  {currentUser.username}
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <a href='/login' className='nav-link' onClick={this.logOut}>
-                  LogOut
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div className='navbar-nav ml-auto'>
-              <li className='nav-item'>
-                <Link to={'/login'} className='nav-link'>
-                  Login
-                </Link>
-              </li>
-
-              <li className='nav-item'>
-                <Link to={'/register'} className='nav-link'>
-                  Sign Up
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav>
+        </div>
 
         <div className='container mt-3'>
           <Switch>
