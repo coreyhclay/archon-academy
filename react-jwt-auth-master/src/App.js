@@ -13,7 +13,7 @@ import Register from './components/register.component'
 import Home from './components/home.component'
 import Profile from './components/profile.component'
 import BoardAdmin from './components/board-admin.component'
-import logo from './resources/images/aa.png'
+import logo from './resources/images/logo.png'
 import './resources/style.css'
 
 class App extends Component {
@@ -49,29 +49,47 @@ class App extends Component {
       <div>
         <div className='nav'>
           <Link to={'/'}>
-            <img src={logo} alt='aa' style={{ width: '50px', marginLeft: '50px' }} />
+            <img src={logo} alt='aa' style={{ width: '50px', marginLeft: '3rem' }} />
           </Link>
           <div className='navlinks'>
-            {showAdminBoard && <Link to={'/admin'}>admin board</Link>}
-            {currentUser && <Link to={'/teams'}>teams</Link>}
-            {currentUser && <Link to={'/add'}>add</Link>}
+            {showAdminBoard && (
+              <Link className='marginRight' to={'/admin'}>
+                admin board
+              </Link>
+            )}
+            {currentUser && (
+              <Link className='marginRight' to={'/teams'}>
+                teams
+              </Link>
+            )}
+            {currentUser && (
+              <Link className='marginRight' to={'/add'}>
+                add
+              </Link>
+            )}
             {currentUser ? (
               <div>
-                <Link to={'/profile'}>{currentUser.username}</Link>
-                <a href='/login' onClick={this.logOut}>
+                <Link className='marginRight' to={'/profile'}>
+                  {currentUser.username}
+                </Link>
+                <a className='marginRight' href='/login' onClick={this.logOut}>
                   logout
                 </a>
               </div>
             ) : (
               <div>
-                <Link to={'/login'}>login</Link>
-                <Link to={'/register'}>sign up</Link>
+                <Link className='marginRight' to={'/login'}>
+                  login
+                </Link>
+                <Link className='marginRight' to={'/register'}>
+                  sign up
+                </Link>
               </div>
             )}
           </div>
         </div>
 
-        <div className='container mt-3'>
+        <div>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
