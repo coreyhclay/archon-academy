@@ -13,6 +13,7 @@ import Register from './components/register.component'
 import Home from './components/home.component'
 import Profile from './components/profile.component'
 import BoardAdmin from './components/board-admin.component'
+import logo from './resources/images/aa.png'
 
 class App extends Component {
   constructor(props) {
@@ -47,7 +48,9 @@ class App extends Component {
       <div>
         <nav className='navbar navbar-expand navbar-dark bg-dark'>
           <Link to={'/'} className='navbar-brand'>
-            coreyhclay
+            <div>
+              <img src={logo} alt='aa' style={{ width: '50px' }} />
+            </div>
           </Link>
           <div className='navbar-nav mr-auto'>
             {showAdminBoard && (
