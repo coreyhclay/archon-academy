@@ -114,7 +114,7 @@ export default class Team extends Component {
     const { currentTeam } = this.state
 
     return (
-      <div>
+      <div className='box'>
         {currentTeam ? (
           <div className='edit-form'>
             <h4>Team</h4>

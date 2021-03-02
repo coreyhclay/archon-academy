@@ -93,66 +93,68 @@ export default class TeamsList extends Component {
     const { searchTitle, teams, currentTeam, currentIndex } = this.state
 
     return (
-      <div className='list row'>
-        <div className='col-md-8'>
+      <div className='box'>
+        <div className='list row'>
+          {/* <div className='col-md-8'> */}
           <div className='input-group mb-3'>
-            <input type='text' className='form-control' placeholder='Search by title' value={searchTitle} onChange={this.onChangeSearchTitle} />
+            <input type='text' className='form-control' placeholder='search by title' value={searchTitle} onChange={this.onChangeSearchTitle} />
             <div className='input-group-append'>
               <button className='btn btn-outline-secondary' type='button' onClick={this.searchTitle}>
-                Search
+                search
               </button>
+              {/* </div> */}
             </div>
           </div>
-        </div>
-        <div className='col-md-6'>
-          <h4>Teams List</h4>
+          <div className='col-md-6'>
+            <h4>teams list</h4>
 
-          <ul className='list-group'>
-            {teams &&
-              teams.map((team, index) => (
-                <li className={'list-group-item ' + (index === currentIndex ? 'active' : '')} onClick={() => this.setActiveTeam(team, index)} key={index}>
-                  {team.title}
-                </li>
-              ))}
-          </ul>
+            <ul className='list-group'>
+              {teams &&
+                teams.map((team, index) => (
+                  <li className={'list-group-item ' + (index === currentIndex ? 'active' : '')} onClick={() => this.setActiveTeam(team, index)} key={index}>
+                    {team.title}
+                  </li>
+                ))}
+            </ul>
 
-          <button className='m-3 btn btn-sm btn-danger' onClick={this.removeAllTeams}>
-            Remove All
-          </button>
-        </div>
-        <div className='col-md-6'>
-          {currentTeam ? (
-            <div>
-              <h4>Team</h4>
+            <button className='m-3 btn btn-sm btn-danger' onClick={this.removeAllTeams}>
+              remove all
+            </button>
+          </div>
+          <div className='col-md-6'>
+            {currentTeam ? (
               <div>
-                <label>
-                  <strong>Title:</strong>
-                </label>{' '}
-                {currentTeam.title}
-              </div>
-              <div>
-                <label>
-                  <strong>Description:</strong>
-                </label>{' '}
-                {currentTeam.description}
-              </div>
-              <div>
-                <label>
-                  <strong>Status:</strong>
-                </label>{' '}
-                {currentTeam.published ? 'Published' : 'Pending'}
-              </div>
+                <h4>team</h4>
+                <div>
+                  <label>
+                    <strong>title:</strong>
+                  </label>{' '}
+                  {currentTeam.title}
+                </div>
+                <div>
+                  <label>
+                    <strong>description:</strong>
+                  </label>{' '}
+                  {currentTeam.description}
+                </div>
+                <div>
+                  <label>
+                    <strong>status:</strong>
+                  </label>{' '}
+                  {currentTeam.published ? 'Published' : 'Pending'}
+                </div>
 
-              <Link to={'/teams/' + currentTeam.id} className='badge badge-warning'>
-                Edit
-              </Link>
-            </div>
-          ) : (
-            <div>
-              <br />
-              <p>Please click on a Team...</p>
-            </div>
-          )}
+                <Link to={'/teams/' + currentTeam.id} className='badge badge-warning'>
+                  Edit
+                </Link>
+              </div>
+            ) : (
+              <div>
+                <br />
+                <p>choose a team...</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     )
