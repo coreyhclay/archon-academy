@@ -66,6 +66,8 @@
 body {
   background-image: url('images/paper.png');
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 2;
 }
 
 a {
@@ -200,6 +202,7 @@ a:hover {
 input {
   width: 100%;
   background: transparent;
+  font-size: medium;
   border: none;
   outline: none;
   box-shadow: none;
@@ -208,8 +211,10 @@ input {
 
 button {
   background-color: transparent;
+  font-size: medium;
   border: 2px solid rgba(0, 0, 0, 0.2);
   padding: 10px 30px 10px 30px;
+  cursor: pointer;
 }
 
 button:hover {
