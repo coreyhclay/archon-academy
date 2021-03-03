@@ -56,7 +56,7 @@ export default class Team extends Component {
         this.setState({
           currentTeam: response.data,
         })
-        console.log(response.data)
+        // console.log(response.data)
       })
       .catch((e) => {
         console.log(e)
@@ -116,49 +116,40 @@ export default class Team extends Component {
     return (
       <div className='box'>
         {currentTeam ? (
-          <div className='edit-form'>
-            <h4>Team</h4>
+          <div>
+            <h4>{currentTeam.title}</h4>
             <form>
-              <div className='form-group'>
-                <label htmlFor='title'>Title</label>
-                <input type='text' className='form-control' id='title' value={currentTeam.title} onChange={this.onChangeTitle} />
+              <div>
+                <label htmlFor='title'>title</label>
+                <input type='text' id='title' value={currentTeam.title} onChange={this.onChangeTitle} />
               </div>
-              <div className='form-group'>
-                <label htmlFor='description'>Description</label>
-                <input type='text' className='form-control' id='description' value={currentTeam.description} onChange={this.onChangeDescription} />
+              <div>
+                <label htmlFor='description'>description</label>
+                <input type='text' id='description' value={currentTeam.description} onChange={this.onChangeDescription} />
               </div>
 
-              <div className='form-group'>
+              <div>
                 <label>
-                  <strong>Status:</strong>
+                  <strong>status:</strong>
                 </label>
-                {currentTeam.published ? 'Published' : 'Pending'}
+                {currentTeam.published ? 'published' : 'pending'}
               </div>
             </form>
+            <div style={{ display: 'flex', width: '400px', justifyContent: 'space-between', marginTop: '1rem' }}>
+              {currentTeam.published ? <button onClick={() => this.updatePublished(false)}>unpublish</button> : <button onClick={() => this.updatePublished(true)}>publish</button>}
 
-            {currentTeam.published ? (
-              <button className='badge badge-primary mr-2' onClick={() => this.updatePublished(false)}>
-                UnPublish
+              <button onClick={this.deleteTeam}>delete</button>
+
+              <button type='submit' onClick={this.updateTeam}>
+                update
               </button>
-            ) : (
-              <button className='badge badge-primary mr-2' onClick={() => this.updatePublished(true)}>
-                Publish
-              </button>
-            )}
-
-            <button className='badge badge-danger mr-2' onClick={this.deleteTeam}>
-              Delete
-            </button>
-
-            <button type='submit' className='badge badge-success' onClick={this.updateTeam}>
-              Update
-            </button>
+            </div>
             <p>{this.state.message}</p>
           </div>
         ) : (
           <div>
             <br />
-            <p>Please click on a Team...</p>
+            <p>please click on a team...</p>
           </div>
         )}
       </div>

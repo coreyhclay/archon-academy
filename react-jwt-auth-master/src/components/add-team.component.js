@@ -65,28 +65,26 @@ export default class AddTeam extends Component {
 
   render() {
     return (
-      <div className='box'>
-        <div className='submit-form'>
+      <div className='box '>
+        <div>
           {this.state.submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
-              <button className='btn btn-success' onClick={this.newTeam}>
-                Add
-              </button>
+              <button onClick={this.newTeam}>Add</button>
             </div>
           ) : (
             <div>
-              <div className='form-group'>
+              <div>
                 <label htmlFor='title'>title</label>
-                <input type='text' className='form-control' id='title' required value={this.state.title} onChange={this.onChangeTitle} name='title' />
+                <input type='text' id='title' required value={this.state.title} onChange={this.onChangeTitle} name='title' />
               </div>
 
-              <div className='form-group'>
+              <div>
                 <label htmlFor='description'>description</label>
-                <input type='text' className='form-control' id='description' required value={this.state.description} onChange={this.onChangeDescription} name='description' />
+                <input type='text' id='description' required value={this.state.description} onChange={this.onChangeDescription} name='description' />
               </div>
 
-              <button onClick={this.saveTeam} className='btn btn-success'>
+              <button onClick={this.saveTeam} style={{ marginTop: '1.5rem' }}>
                 submit
               </button>
             </div>

@@ -89,7 +89,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Cinzel Decorative';
+  font-family: 'Cinzel';
   font-weight: 400;
   font-size: 4em;
   color: var(--color-black);
@@ -98,6 +98,8 @@ h3 {
 }
 
 h4 {
+  font-family: 'Cinzel';
+  font-size: 2em;
   margin: 0;
 }
 
@@ -122,8 +124,10 @@ h4 {
   opacity: 50%;
 }
 
-.navlinks a:hover {
+a:hover {
   opacity: 100%;
+  color: black;
+  text-decoration: none;
 }
 
 /* not working */
@@ -184,7 +188,76 @@ h4 {
 }
 
 .box {
-  width: 1200px;
+  width: 1000px;
   margin: auto;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 30px 10px 30px;
+}
+
+button:hover {
+  border: 2px solid rgb(0, 0, 0);
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+.boxgrid {
+  display: grid;
+  row-gap: 2rem;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header header'
+    'main sidebar';
+}
+
+.item-a {
+  width: 100%;
+  display: flex;
+  grid-area: header;
+}
+
+.item-b {
+  grid-area: main;
+}
+
+.item-c {
+  grid-area: sidebar;
+}
+
+ul li {
+  line-height: 1.5;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.crudbutton {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 30px 10px 30px;
+  margin-top: 5000000px;
+}
+
+link:hover {
+  color: #000000;
 }

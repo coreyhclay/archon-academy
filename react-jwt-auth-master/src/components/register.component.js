@@ -113,10 +113,8 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div className='col-md-12'>
-        <div className='card card-container'>
-          <img src='//ssl.gstatic.com/accounts/ui/avatar_2x.png' alt='profile-img' className='profile-img-card' />
-
+      <div className='box'>
+        <div>
           <Form
             onSubmit={this.handleRegister}
             ref={(c) => {
@@ -125,32 +123,30 @@ export default class Register extends Component {
           >
             {!this.state.successful && (
               <div>
-                <div className='form-group'>
-                  <label htmlFor='username'>Username</label>
-                  <Input type='text' className='form-control' name='username' value={this.state.username} onChange={this.onChangeUsername} validations={[required, vusername]} />
+                <div>
+                  <label htmlFor='username'>username</label>
+                  <Input type='text' name='username' value={this.state.username} onChange={this.onChangeUsername} validations={[required, vusername]} />
                 </div>
 
-                <div className='form-group'>
-                  <label htmlFor='email'>Email</label>
-                  <Input type='text' className='form-control' name='email' value={this.state.email} onChange={this.onChangeEmail} validations={[required, email]} />
+                <div>
+                  <label htmlFor='email'>email</label>
+                  <Input type='text' name='email' value={this.state.email} onChange={this.onChangeEmail} validations={[required, email]} />
                 </div>
 
-                <div className='form-group'>
-                  <label htmlFor='password'>Password</label>
-                  <Input type='password' className='form-control' name='password' value={this.state.password} onChange={this.onChangePassword} validations={[required, vpassword]} />
+                <div>
+                  <label htmlFor='password'>password</label>
+                  <Input type='password' name='password' value={this.state.password} onChange={this.onChangePassword} validations={[required, vpassword]} />
                 </div>
 
-                <div className='form-group'>
-                  <button className='btn btn-primary btn-block'>Sign Up</button>
+                <div>
+                  <button style={{ marginTop: '1.5rem' }}>sign up</button>
                 </div>
               </div>
             )}
 
             {this.state.message && (
-              <div className='form-group'>
-                <div className={this.state.successful ? 'alert alert-success' : 'alert alert-danger'} role='alert'>
-                  {this.state.message}
-                </div>
+              <div>
+                <div role='alert'>{this.state.message}</div>
               </div>
             )}
             <CheckButton

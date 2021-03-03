@@ -9,7 +9,6 @@ export default class TeamsList extends Component {
     this.retrieveTeams = this.retrieveTeams.bind(this)
     this.refreshList = this.refreshList.bind(this)
     this.setActiveTeam = this.setActiveTeam.bind(this)
-    this.removeAllTeams = this.removeAllTeams.bind(this)
     this.searchTitle = this.searchTitle.bind(this)
 
     this.state = {
@@ -38,7 +37,7 @@ export default class TeamsList extends Component {
         this.setState({
           teams: response.data,
         })
-        console.log(response.data)
+        // console.log(response.data)
       })
       .catch((e) => {
         console.log(e)
@@ -60,17 +59,6 @@ export default class TeamsList extends Component {
     })
   }
 
-  removeAllTeams() {
-    TeamDataService.deleteAll()
-      .then((response) => {
-        console.log(response.data)
-        this.refreshList()
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-  }
-
   searchTitle() {
     this.setState({
       currentTeam: null,
@@ -90,47 +78,32 @@ export default class TeamsList extends Component {
   }
 
   render() {
-    const { searchTitle, teams, currentTeam, currentIndex } = this.state
+    const { searchTitle, teams, currentTeam } = this.state
 
     return (
       <div className='box'>
-        <div className='list row'>
-          {/* <div className='col-md-8'> */}
-          <div className='input-group mb-3'>
-            <input type='text' className='form-control' placeholder='search by title' value={searchTitle} onChange={this.onChangeSearchTitle} />
-            <div className='input-group-append'>
-              <button className='btn btn-outline-secondary' type='button' onClick={this.searchTitle}>
-                search
-              </button>
-              {/* </div> */}
-            </div>
+        <div className='boxgrid'>
+          <div className='item-a'>
+            <input type='text' placeholder='search by title' value={searchTitle} onChange={this.onChangeSearchTitle} />
+            <button type='button' onClick={this.searchTitle}>
+              search
+            </button>
           </div>
-          <div className='col-md-6'>
-            <h4>teams list</h4>
-
-            <ul className='list-group'>
+          <div className='item-b'>
+            <h4>teams</h4>
+            <ul className='teamslist'>
               {teams &&
                 teams.map((team, index) => (
-                  <li className={'list-group-item ' + (index === currentIndex ? 'active' : '')} onClick={() => this.setActiveTeam(team, index)} key={index}>
+                  <li style={{ marginTop: '.5rem' }} onClick={() => this.setActiveTeam(team, index)} key={index}>
                     {team.title}
                   </li>
                 ))}
             </ul>
-
-            <button className='m-3 btn btn-sm btn-danger' onClick={this.removeAllTeams}>
-              remove all
-            </button>
           </div>
-          <div className='col-md-6'>
+          <div className='item-c'>
             {currentTeam ? (
               <div>
-                <h4>team</h4>
-                <div>
-                  <label>
-                    <strong>title:</strong>
-                  </label>{' '}
-                  {currentTeam.title}
-                </div>
+                <h4>{currentTeam.title}</h4>
                 <div>
                   <label>
                     <strong>description:</strong>
@@ -141,11 +114,12 @@ export default class TeamsList extends Component {
                   <label>
                     <strong>status:</strong>
                   </label>{' '}
-                  {currentTeam.published ? 'Published' : 'Pending'}
+                  {currentTeam.published ? 'published' : 'pending'}
                 </div>
-
-                <Link to={'/teams/' + currentTeam.id} className='badge badge-warning'>
-                  Edit
+                <Link to={'/teams/' + currentTeam.id}>
+                  <button style={{ marginTop: '20px' }} type='button'>
+                    edit
+                  </button>
                 </Link>
               </div>
             ) : (
