@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import TeamDataService from '../services/team.service'
+import CharacterSelect from './CharacterSelect'
 
 export default class Team extends Component {
   constructor(props) {
     super(props)
     this.onChangeTitle = this.onChangeTitle.bind(this)
     this.onChangeDescription = this.onChangeDescription.bind(this)
-    this.onChangeslot1 = this.onChangeslot1.bind(this)
-    this.onChangeslot2 = this.onChangeslot2.bind(this)
-    this.onChangeslot3 = this.onChangeslot3.bind(this)
-    this.onChangeslot4 = this.onChangeslot4.bind(this)
+    this.onChangeSlot1 = this.onChangeSlot1.bind(this)
+    this.onChangeSlot2 = this.onChangeSlot2.bind(this)
+    this.onChangeSlot3 = this.onChangeSlot3.bind(this)
+    this.onChangeSlot4 = this.onChangeSlot4.bind(this)
     this.getTeam = this.getTeam.bind(this)
     this.updatePublished = this.updatePublished.bind(this)
     this.updateTeam = this.updateTeam.bind(this)
@@ -57,7 +58,7 @@ export default class Team extends Component {
     }))
   }
 
-  onChangeslot1(e) {
+  onChangeSlot1(e) {
     const slot1 = e.target.value
 
     this.setState((prevState) => ({
@@ -68,7 +69,7 @@ export default class Team extends Component {
     }))
   }
 
-  onChangeslot2(e) {
+  onChangeSlot2(e) {
     const slot2 = e.target.value
 
     this.setState((prevState) => ({
@@ -79,7 +80,7 @@ export default class Team extends Component {
     }))
   }
 
-  onChangeslot3(e) {
+  onChangeSlot3(e) {
     const slot3 = e.target.value
 
     this.setState((prevState) => ({
@@ -90,7 +91,7 @@ export default class Team extends Component {
     }))
   }
 
-  onChangeslot4(e) {
+  onChangeSlot4(e) {
     const slot4 = e.target.value
 
     this.setState((prevState) => ({
@@ -182,24 +183,23 @@ export default class Team extends Component {
                 <label htmlFor='description'>description</label>
                 <input type='text' id='description' value={currentTeam.description} onChange={this.onChangeDescription} />
               </div>
-              <div>
-                <label htmlFor='slot1'>slot1</label>
-                <input type='text' id='slot1' value={currentTeam.slot1} onChange={this.onChangeslot1} name='slot1' />
-              </div>
-
-              <div>
-                <label htmlFor='slot2'>slot2</label>
-                <input type='text' id='slot2' value={currentTeam.slot2} onChange={this.onChangeslot2} name='slot2' />
-              </div>
-
-              <div>
-                <label htmlFor='slot3'>slot3</label>
-                <input type='text' id='slot3' value={currentTeam.slot3} onChange={this.onChangeslot3} name='slot3' />
-              </div>
-
-              <div>
-                <label htmlFor='slot4'>slot4</label>
-                <input type='text' id='slot4' value={currentTeam.slot4} onChange={this.onChangeslot4} name='slot4' />
+              <div style={{ display: 'flex', width: '600px', justifyContent: 'space-between', marginTop: '.5rem' }}>
+                <div>
+                  <label>slot1</label>
+                  <CharacterSelect value={this.state.slot1} onChange={this.onChangeSlot1} />
+                </div>
+                <div>
+                  <label>slot2</label>
+                  <CharacterSelect value={this.state.slot2} onChange={this.onChangeSlot2} />
+                </div>
+                <div>
+                  <label>slot3</label>
+                  <CharacterSelect value={this.state.slot3} onChange={this.onChangeSlot3} />
+                </div>
+                <div>
+                  <label>slot4</label>
+                  <CharacterSelect value={this.state.slot4} onChange={this.onChangeSlot4} />
+                </div>
               </div>
 
               <div>

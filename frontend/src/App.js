@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 
-import './App.css'
-
 import AuthService from './services/auth.service'
 
 import AddTeam from './components/add-team.component'
