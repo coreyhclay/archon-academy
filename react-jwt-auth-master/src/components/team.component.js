@@ -6,6 +6,10 @@ export default class Team extends Component {
     super(props)
     this.onChangeTitle = this.onChangeTitle.bind(this)
     this.onChangeDescription = this.onChangeDescription.bind(this)
+    this.onChangeslot1 = this.onChangeslot1.bind(this)
+    this.onChangeslot2 = this.onChangeslot2.bind(this)
+    this.onChangeslot3 = this.onChangeslot3.bind(this)
+    this.onChangeslot4 = this.onChangeslot4.bind(this)
     this.getTeam = this.getTeam.bind(this)
     this.updatePublished = this.updatePublished.bind(this)
     this.updateTeam = this.updateTeam.bind(this)
@@ -17,6 +21,10 @@ export default class Team extends Component {
         title: '',
         description: '',
         published: false,
+        slot1: '',
+        slot2: '',
+        slot3: '',
+        slot4: '',
       },
       message: '',
     }
@@ -28,7 +36,6 @@ export default class Team extends Component {
 
   onChangeTitle(e) {
     const title = e.target.value
-
     this.setState(function (prevState) {
       return {
         currentTeam: {
@@ -46,6 +53,50 @@ export default class Team extends Component {
       currentTeam: {
         ...prevState.currentTeam,
         description: description,
+      },
+    }))
+  }
+
+  onChangeslot1(e) {
+    const slot1 = e.target.value
+
+    this.setState((prevState) => ({
+      currentTeam: {
+        ...prevState.currentTeam,
+        slot1: slot1,
+      },
+    }))
+  }
+
+  onChangeslot2(e) {
+    const slot2 = e.target.value
+
+    this.setState((prevState) => ({
+      currentTeam: {
+        ...prevState.currentTeam,
+        slot2: slot2,
+      },
+    }))
+  }
+
+  onChangeslot3(e) {
+    const slot3 = e.target.value
+
+    this.setState((prevState) => ({
+      currentTeam: {
+        ...prevState.currentTeam,
+        slot3: slot3,
+      },
+    }))
+  }
+
+  onChangeslot4(e) {
+    const slot4 = e.target.value
+
+    this.setState((prevState) => ({
+      currentTeam: {
+        ...prevState.currentTeam,
+        slot4: slot4,
       },
     }))
   }
@@ -69,6 +120,10 @@ export default class Team extends Component {
       title: this.state.currentTeam.title,
       description: this.state.currentTeam.description,
       published: status,
+      slot1: this.state.currentTeam.slot1,
+      slot2: this.state.currentTeam.slot2,
+      slot3: this.state.currentTeam.slot3,
+      slot4: this.state.currentTeam.slot4,
     }
 
     TeamDataService.update(this.state.currentTeam.id, data)
@@ -126,6 +181,25 @@ export default class Team extends Component {
               <div>
                 <label htmlFor='description'>description</label>
                 <input type='text' id='description' value={currentTeam.description} onChange={this.onChangeDescription} />
+              </div>
+              <div>
+                <label htmlFor='slot1'>slot1</label>
+                <input type='text' id='slot1' value={currentTeam.slot1} onChange={this.onChangeslot1} name='slot1' />
+              </div>
+
+              <div>
+                <label htmlFor='slot2'>slot2</label>
+                <input type='text' id='slot2' value={currentTeam.slot2} onChange={this.onChangeslot2} name='slot2' />
+              </div>
+
+              <div>
+                <label htmlFor='slot3'>slot3</label>
+                <input type='text' id='slot3' value={currentTeam.slot3} onChange={this.onChangeslot3} name='slot3' />
+              </div>
+
+              <div>
+                <label htmlFor='slot4'>slot4</label>
+                <input type='text' id='slot4' value={currentTeam.slot4} onChange={this.onChangeslot4} name='slot4' />
               </div>
 
               <div>

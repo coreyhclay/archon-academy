@@ -62,7 +62,8 @@ public class TeamController {
     @PostMapping("/teams")
     public ResponseEntity<Team> createTeam(@RequestBody Team team) {
         try {
-            Team _team = teamRepository.save(new Team(team.getTitle(), team.getDescription(), false));
+            Team _team = teamRepository.save(new Team(team.getTitle(), team.getDescription(), false, team.getSlot1(),
+                    team.getSlot2(), team.getSlot3(), team.getSlot4()));
             return new ResponseEntity<>(_team, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

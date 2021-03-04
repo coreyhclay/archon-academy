@@ -116,6 +116,30 @@ export default class TeamsList extends Component {
                   </label>{' '}
                   {currentTeam.published ? 'published' : 'pending'}
                 </div>
+                <div>
+                  <label>
+                    <strong>slot1:</strong>
+                  </label>{' '}
+                  {currentTeam.slot1}
+                </div>
+                <div>
+                  <label>
+                    <strong>slot2:</strong>
+                  </label>{' '}
+                  {currentTeam.slot2}
+                </div>
+                <div>
+                  <label>
+                    <strong>slot3:</strong>
+                  </label>{' '}
+                  {currentTeam.slot3}
+                </div>
+                <div>
+                  <label>
+                    <strong>slot4:</strong>
+                  </label>{' '}
+                  {currentTeam.slot4}
+                </div>
                 <Link to={'/teams/' + currentTeam.id}>
                   <button style={{ marginTop: '20px' }} type='button'>
                     edit
