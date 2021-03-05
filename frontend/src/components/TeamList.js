@@ -90,7 +90,7 @@ export default class TeamsList extends Component {
             </button>
           </div>
           <div className='item-b'>
-            <h4>teams</h4>
+            <label>teams</label>
             <ul className='teamslist'>
               {teams &&
                 teams.map((team, index) => (
@@ -102,43 +102,28 @@ export default class TeamsList extends Component {
           </div>
           <div className='item-c'>
             {currentTeam ? (
-              <div>
-                <h4>{currentTeam.title}</h4>
+              <div style={{ lineHeight: '2.5' }}>
                 <div>
-                  <label>
-                    <strong>description:</strong>
-                  </label>{' '}
-                  {currentTeam.description}
+                  <strong>TITLE:</strong> {currentTeam.title}
                 </div>
                 <div>
-                  <label>
-                    <strong>status:</strong>
-                  </label>{' '}
-                  {currentTeam.published ? 'published' : 'pending'}
+                  <strong>DESCRIPTION:</strong> {currentTeam.description}
+                </div>
+
+                <div>
+                  <strong>CHARACTER #1:</strong> {currentTeam.slot1}
                 </div>
                 <div>
-                  <label>
-                    <strong>slot1:</strong>
-                  </label>{' '}
-                  {currentTeam.slot1}
+                  <strong>CHARACTER #2:</strong> {currentTeam.slot2}
                 </div>
                 <div>
-                  <label>
-                    <strong>slot2:</strong>
-                  </label>{' '}
-                  {currentTeam.slot2}
+                  <strong>CHARACTER #3:</strong> {currentTeam.slot3}
                 </div>
                 <div>
-                  <label>
-                    <strong>slot3:</strong>
-                  </label>{' '}
-                  {currentTeam.slot3}
+                  <strong>CHARACTER #4:</strong> {currentTeam.slot4}
                 </div>
                 <div>
-                  <label>
-                    <strong>slot4:</strong>
-                  </label>{' '}
-                  {currentTeam.slot4}
+                  <strong>STATUS:</strong> {currentTeam.published ? 'published' : 'pending'}
                 </div>
                 <Link to={'/teams/' + currentTeam.id}>
                   <button style={{ marginTop: '20px' }} type='button'>

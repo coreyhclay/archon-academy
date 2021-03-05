@@ -110,7 +110,7 @@ export default class AddTeam extends Component {
   render() {
     return (
       <div className='box'>
-        <div>
+        <div style={{ lineHeight: '2.5' }}>
           {this.state.submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
@@ -128,11 +128,15 @@ export default class AddTeam extends Component {
                 <input type='text' id='description' required value={this.state.description} onChange={this.onChangeDescription} name='description' />
               </div>
               <div>
-                <CharacterSelect value={this.state.slot1} onChange={this.onChangeSlot1} />
-                <CharacterSelect value={this.state.slot2} onChange={this.onChangeSlot2} />
-                <CharacterSelect value={this.state.slot3} onChange={this.onChangeSlot3} />
-                <CharacterSelect value={this.state.slot4} onChange={this.onChangeSlot4} />
+                <label>composition</label>
+                <div style={{ display: 'flex', width: '600px', justifyContent: 'space-between', marginTop: '.5rem' }}>
+                  <CharacterSelect value={this.state.slot1} onChange={this.onChangeSlot1} />
+                  <CharacterSelect value={this.state.slot2} onChange={this.onChangeSlot2} />
+                  <CharacterSelect value={this.state.slot3} onChange={this.onChangeSlot3} />
+                  <CharacterSelect value={this.state.slot4} onChange={this.onChangeSlot4} />
+                </div>
               </div>
+              <br />
               <button onClick={this.saveTeam} style={{ marginTop: '1.5rem' }}>
                 submit
               </button>

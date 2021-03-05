@@ -77,7 +77,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className='box'>
-        <div>
+        <div style={{ lineHeight: '2.5' }}>
           <Form
             onSubmit={this.handleLogin}
             ref={(c) => {
@@ -93,6 +93,8 @@ export default class Login extends Component {
               <label htmlFor='password'>password</label>
               <Input type='password' name='password' value={this.state.password} onChange={this.onChangePassword} validations={[required]} />
             </div>
+
+            <br />
 
             <div>
               <button style={{ marginTop: '1.5rem' }} disabled={this.state.loading}>

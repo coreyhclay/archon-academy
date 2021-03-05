@@ -66,8 +66,7 @@
 body {
   background-image: url('images/paper.png');
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a {
@@ -84,10 +83,10 @@ h1 {
 }
 
 h2 {
-  font-weight: 400;
+  font-weight: 100;
   font-size: 1.25em;
   margin: 0;
-  letter-spacing: 2em;
+  letter-spacing: 2.5em;
 }
 
 h3 {
@@ -222,9 +221,7 @@ button:hover {
 }
 
 ul {
-  list-style-type: none;
-  padding-left: 2em;
-  text-indent: -2em;
+  list-style-type: square;
 }
 
 .boxgrid {
@@ -253,16 +250,33 @@ ul {
 
 ul li {
   line-height: 1.5;
-  text-decoration: underline;
+
   cursor: pointer;
 }
 
 .crudbutton {
   border: 2px solid rgba(0, 0, 0, 0.2);
   padding: 10px 30px 10px 30px;
-  margin-top: 5000000px;
 }
 
 link:hover {
   color: #000000;
+}
+
+.CharacterSelect {
+  background-color: transparent;
+  font-size: medium;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.characteroptions {
+  background-color: transparent;
+  border: none;
+}
+
+label {
+  letter-spacing: 10px;
+  font-family: 'Cinzel';
+  font-size: xx-large;
 }

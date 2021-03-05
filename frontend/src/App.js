@@ -3,14 +3,14 @@ import { Switch, Route, Link } from 'react-router-dom'
 
 import AuthService from './services/auth.service'
 
-import AddTeam from './components/add-team.component'
-import Team from './components/team.component'
-import TeamsList from './components/teams-list.component'
-import Login from './components/login.component'
-import Register from './components/register.component'
-import Home from './components/home.component'
-import Profile from './components/profile.component'
-import BoardAdmin from './components/board-admin.component'
+import AddTeam from './components/AddTeam'
+import Team from './components/EditTeam'
+import TeamsList from './components/TeamList'
+import Login from './components/Login'
+import Register from './components/Register'
+import Home from './components/Home'
+import Profile from './components/Profile'
+import BoardAdmin from './components/AdminBoard'
 import logo from './resources/images/logo.png'
 import './resources/style.css'
 
@@ -80,7 +80,7 @@ class App extends Component {
                   login
                 </Link>
                 <Link className='marginRight' to={'/register'}>
-                  sign up
+                  register
                 </Link>
               </div>
             )}

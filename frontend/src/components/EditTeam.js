@@ -60,7 +60,7 @@ export default class Team extends Component {
 
   onChangeSlot1(e) {
     const slot1 = e.target.value
-
+    console.log(slot1)
     this.setState((prevState) => ({
       currentTeam: {
         ...prevState.currentTeam,
@@ -108,7 +108,6 @@ export default class Team extends Component {
         this.setState({
           currentTeam: response.data,
         })
-        // console.log(response.data)
       })
       .catch((e) => {
         console.log(e)
@@ -120,11 +119,11 @@ export default class Team extends Component {
       id: this.state.currentTeam.id,
       title: this.state.currentTeam.title,
       description: this.state.currentTeam.description,
-      published: status,
       slot1: this.state.currentTeam.slot1,
       slot2: this.state.currentTeam.slot2,
       slot3: this.state.currentTeam.slot3,
       slot4: this.state.currentTeam.slot4,
+      published: status,
     }
 
     TeamDataService.update(this.state.currentTeam.id, data)
@@ -172,8 +171,7 @@ export default class Team extends Component {
     return (
       <div className='box'>
         {currentTeam ? (
-          <div>
-            <h4>{currentTeam.title}</h4>
+          <div style={{ lineHeight: '2.5' }}>
             <form>
               <div>
                 <label htmlFor='title'>title</label>
@@ -183,32 +181,23 @@ export default class Team extends Component {
                 <label htmlFor='description'>description</label>
                 <input type='text' id='description' value={currentTeam.description} onChange={this.onChangeDescription} />
               </div>
+              <label>composition</label>
               <div style={{ display: 'flex', width: '600px', justifyContent: 'space-between', marginTop: '.5rem' }}>
                 <div>
-                  <label>slot1</label>
-                  <CharacterSelect value={this.state.slot1} onChange={this.onChangeSlot1} />
+                  <CharacterSelect value={currentTeam.slot1} onChange={this.onChangeSlot1} />
                 </div>
                 <div>
-                  <label>slot2</label>
-                  <CharacterSelect value={this.state.slot2} onChange={this.onChangeSlot2} />
+                  <CharacterSelect value={currentTeam.slot2} onChange={this.onChangeSlot2} />
                 </div>
                 <div>
-                  <label>slot3</label>
-                  <CharacterSelect value={this.state.slot3} onChange={this.onChangeSlot3} />
+                  <CharacterSelect value={currentTeam.slot3} onChange={this.onChangeSlot3} />
                 </div>
                 <div>
-                  <label>slot4</label>
-                  <CharacterSelect value={this.state.slot4} onChange={this.onChangeSlot4} />
+                  <CharacterSelect value={currentTeam.slot4} onChange={this.onChangeSlot4} />
                 </div>
-              </div>
-
-              <div>
-                <label>
-                  <strong>status:</strong>
-                </label>
-                {currentTeam.published ? 'published' : 'pending'}
               </div>
             </form>
+            <br />
             <div style={{ display: 'flex', width: '400px', justifyContent: 'space-between', marginTop: '1rem' }}>
               {currentTeam.published ? <button onClick={() => this.updatePublished(false)}>unpublish</button> : <button onClick={() => this.updatePublished(true)}>publish</button>}
 

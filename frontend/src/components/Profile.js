@@ -15,7 +15,7 @@ export default class Profile extends Component {
   componentDidMount() {
     const currentUser = AuthService.getCurrentUser()
 
-    if (!currentUser) this.setState({ redirect: '/home' })
+    if (!currentUser) this.setState({ redirect: '/Home' })
     this.setState({ currentUser: currentUser, userReady: true })
   }
 
@@ -31,21 +31,19 @@ export default class Profile extends Component {
         {this.state.userReady ? (
           <div>
             <header>
-              <h3>
-                <strong>{currentUser.username}</strong> Profile
-              </h3>
+              <label style={{ margin: 'auto' }}>{currentUser.username}</label>
             </header>
             <p>
-              <strong>token:</strong> {currentUser.accessToken.substring(0, 20)} ... {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
+              <strong>TOKEN:</strong> {currentUser.accessToken.substring(0, 20)} ... {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
             </p>
             <p>
-              <strong>id:</strong> {currentUser.id}
+              <strong>ID:</strong> {currentUser.id}
             </p>
             <p>
-              <strong>email:</strong> {currentUser.email}
+              <strong>EMAIL:</strong> {currentUser.email}
             </p>
-            <strong>authorities:</strong>
-            <ul>{currentUser.roles && currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}</ul>
+            <strong>AUTHORITY: </strong>
+            {currentUser.roles}
           </div>
         ) : null}
       </div>

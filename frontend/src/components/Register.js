@@ -114,7 +114,7 @@ export default class Register extends Component {
   render() {
     return (
       <div className='box'>
-        <div>
+        <div style={{ lineHeight: '2.5' }}>
           <Form
             onSubmit={this.handleRegister}
             ref={(c) => {
@@ -138,8 +138,9 @@ export default class Register extends Component {
                   <Input type='password' name='password' value={this.state.password} onChange={this.onChangePassword} validations={[required, vpassword]} />
                 </div>
 
+                <br />
                 <div>
-                  <button style={{ marginTop: '1.5rem' }}>sign up</button>
+                  <button style={{ marginTop: '1.5rem' }}>register</button>
                 </div>
               </div>
             )}

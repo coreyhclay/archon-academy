@@ -78,6 +78,10 @@ public class TeamController {
             Team _team = teamData.get();
             _team.setTitle(team.getTitle());
             _team.setDescription(team.getDescription());
+            _team.setSlot1(team.getSlot1());
+            _team.setSlot2(team.getSlot2());
+            _team.setSlot3(team.getSlot3());
+            _team.setSlot4(team.getSlot4());
             _team.setPublished(team.isPublished());
             return new ResponseEntity<>(teamRepository.save(_team), HttpStatus.OK);
         } else {

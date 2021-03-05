@@ -1,6 +1,6 @@
 const CharacterSelect = (props) => (
-  <select value={props.value} onChange={props.onChange}>
-    <option value=''></option>
+  <select className='CharacterSelect' value={props.value} onChange={props.onChange}>
+    <option className='characteroptions' value=''></option>
     <option value='Albedo'>Albedo</option>
     <option value='Amber'>Amber</option>
     <option value='Barbara'>Barbara</option>
