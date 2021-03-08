@@ -14,11 +14,13 @@ import BoardAdmin from './components/AdminBoard'
 import logo from './resources/images/logo.png'
 import './resources/style.css'
 
-class App extends Component {
+//
+export default class App extends Component {
   constructor(props) {
     super(props)
-    this.logOut = this.logOut.bind(this)
+    // this.logOut = this.logOut.bind(this)
 
+    // initialize the state of showAdminBoard and currentUser
     this.state = {
       showAdminBoard: false,
       currentUser: undefined,
@@ -103,5 +105,3 @@ class App extends Component {
     )
   }
 }
-
-export default App

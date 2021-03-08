@@ -26,7 +26,7 @@ const email = (value) => {
   }
 }
 
-const vusername = (value) => {
+const validateUsername = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className='alert alert-danger' role='alert'>
@@ -36,7 +36,7 @@ const vusername = (value) => {
   }
 }
 
-const vpassword = (value) => {
+const validatePassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className='alert alert-danger' role='alert'>
@@ -125,7 +125,7 @@ export default class Register extends Component {
               <div>
                 <div>
                   <label htmlFor='username'>username</label>
-                  <Input type='text' name='username' value={this.state.username} onChange={this.onChangeUsername} validations={[required, vusername]} />
+                  <Input type='text' name='username' value={this.state.username} onChange={this.onChangeUsername} validations={[required, validateUsername]} />
                 </div>
 
                 <div>
@@ -135,7 +135,7 @@ export default class Register extends Component {
 
                 <div>
                   <label htmlFor='password'>password</label>
-                  <Input type='password' name='password' value={this.state.password} onChange={this.onChangePassword} validations={[required, vpassword]} />
+                  <Input type='password' name='password' value={this.state.password} onChange={this.onChangePassword} validations={[required, validatePassword]} />
                 </div>
 
                 <br />

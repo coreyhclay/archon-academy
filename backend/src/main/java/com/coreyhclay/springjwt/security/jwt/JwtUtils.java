@@ -1,3 +1,5 @@
+// provides methods for generating, parsing, validating JWT
+
 package com.coreyhclay.springjwt.security.jwt;
 
 import java.util.Date;
