@@ -51,6 +51,11 @@ public class AuthController {
 	@Autowired
 	JwtUtils jwtUtils;
 
+	// authenticate { username, pasword }
+	// update SecurityContext using Authentication object
+	// generate JWT
+	// get UserDetails from Authentication object
+	// response contains JWT and UserDetails data
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -68,6 +73,9 @@ public class AuthController {
 				new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), roles));
 	}
 
+	// check existing username/email
+	// create new User (with ROLE_USER if not specifying role)
+	// save User to database using UserRepository
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -92,16 +100,16 @@ public class AuthController {
 		} else {
 			strRoles.forEach(role -> {
 				switch (role) {
-					case "admin":
-						Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
-								.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-						roles.add(adminRole);
+				case "admin":
+					Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+					roles.add(adminRole);
 
-						break;
-					default:
-						Role userRole = roleRepository.findByName(ERole.ROLE_USER)
-								.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-						roles.add(userRole);
+					break;
+				default:
+					Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+					roles.add(userRole);
 				}
 			});
 		}

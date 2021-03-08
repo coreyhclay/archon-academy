@@ -8,7 +8,7 @@ class TeamDataService {
   }
 
   get(id) {
-    console.log(API_URL + `teams/${id}`, { headers: authHeader() })
+    // console.log(API_URL + `teams/${id}`, { headers: authHeader() })
     return axios.get(API_URL + `teams/${id}`, { headers: authHeader() })
   }
 
@@ -17,7 +17,7 @@ class TeamDataService {
   }
 
   update(id, data) {
-    console.log(API_URL + `teams/${id}`, data, { headers: authHeader() })
+    // console.log(API_URL + `teams/${id}`, data, { headers: authHeader() })
     return axios.put(API_URL + `teams/${id}`, data, { headers: authHeader() })
   }
 
